@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.1.0...v1.1.1) (2019-03-21)
+
+
+### Bug Fixes
+
+* error handling, removed obsolete token handling ([523576a](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/523576a))
+
 # [1.1.0](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.0.1...v1.1.0) (2019-03-18)
 
 
