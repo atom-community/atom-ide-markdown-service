@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.1.1...v1.1.2) (2019-04-08)
+
+
+### Bug Fixes
+
+* line break at line 80 in code snippets ([859d265](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/859d265))
+
 ## [1.1.1](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.1.0...v1.1.1) (2019-03-21)
 
 
