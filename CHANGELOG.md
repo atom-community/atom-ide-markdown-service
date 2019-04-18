@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.1.2...v1.2.0) (2019-04-18)
+
+
+### Features
+
+* typing and documentation added ([4e7f229](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/4e7f229))
+* use async/await and default grammar if not set on code section ([d01b00e](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/d01b00e))
+
 ## [1.1.2](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.1.1...v1.1.2) (2019-04-08)
 
 
