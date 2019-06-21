@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.2.1...v1.2.2) (2019-06-21)
+
+
+### Bug Fixes
+
+* grammar name handling ([0a9106b](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/0a9106b))
+
 ## [1.2.1](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.2.0...v1.2.1) (2019-06-19)
 
 
