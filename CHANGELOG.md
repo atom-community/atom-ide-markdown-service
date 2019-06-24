@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.2.2...v1.2.3) (2019-06-24)
+
+
+### Bug Fixes
+
+* upgrade additional build packages ([42e995c](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/42e995c))
+
 ## [1.2.2](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.2.1...v1.2.2) (2019-06-21)
 
 

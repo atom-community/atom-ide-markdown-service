@@ -1,7 +1,7 @@
 {
   "name": "atom-ide-markdown-service",
   "main": "./lib/main",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A markdown rendering service.",
   "keywords": [
     "atom-package",
