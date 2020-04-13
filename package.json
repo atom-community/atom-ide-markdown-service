@@ -1,7 +1,7 @@
 {
   "name": "atom-ide-markdown-service",
   "main": "./lib/main",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A markdown rendering service.",
   "keywords": [
     "atom-package",
@@ -33,7 +33,7 @@
     "prettier": "^1.18.2",
     "semantic-release": "^15.13.16"
   },
-   "activationHooks": [
+  "activationHooks": [
     "core:loaded-shell-environment"
   ],
   "release": {

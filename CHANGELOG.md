@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.2.3...v1.2.4) (2020-04-13)
+
+
+### Bug Fixes
+
+* activation hook to improve the loading time by deferring it ([85172b7](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/85172b7))
+
 ## [1.2.3](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.2.2...v1.2.3) (2019-06-24)
 
 
