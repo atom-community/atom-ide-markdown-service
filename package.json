@@ -24,7 +24,7 @@
     "@commitlint/travis-cli": "^8.0.0",
     "@semantic-release/apm-config": "^6.0.1",
     "@types/atom": "^1.36.1",
-    "@types/dompurify": "0.0.32",
+    "@types/dompurify": "2.0.2",
     "@types/marked": "^0.6.5",
     "@types/node": "^10.14.9",
     "atom-languageclient": "^0.9.9",
