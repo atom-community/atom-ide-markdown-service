@@ -22,7 +22,7 @@
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
     "@commitlint/travis-cli": "^8.0.0",
-    "@semantic-release/apm-config": "^6.0.1",
+    "@semantic-release/apm-config": "^6.0.2",
     "@types/atom": "^1.36.1",
     "@types/dompurify": "0.0.32",
     "@types/marked": "^0.6.5",
