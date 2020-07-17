@@ -1,6 +1,6 @@
 {
   "name": "atom-ide-markdown-service",
-  "main": "./lib/main",
+  "main": "./dist/main",
   "version": "1.2.4",
   "description": "A markdown rendering service.",
   "keywords": [
@@ -14,46 +14,57 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint . --fix",
+    "test": "atom --test spec",
+    "clean": "shx rm -rf dist",
+    "babel": "npm run clean && shx cp -r lib dist && cross-env NODE_ENV=development cross-env BABEL_ENV=development babel dist --out-dir dist",
+    "dev": "npm run clean && cross-env NODE_ENV=development cross-env BABEL_ENV=production rollup -c -w",
+    "build": "npm run clean && cross-env NODE_ENV=production cross-env BABEL_ENV=production rollup -c ",
+    "build-commit": "build-commit -o dist",
+    "bump": "ncu -u",
+    "prepare": "npm run build"
+  },
   "dependencies": {
-    "dompurify": "^1.0.11",
-    "marked": "^0.6.2"
+    "dompurify": "^2.0.12",
+    "marked": "^1.1.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.0.0",
-    "@commitlint/config-conventional": "^8.0.0",
-    "@commitlint/travis-cli": "^8.0.0",
-    "@semantic-release/apm-config": "^6.0.1",
-    "@types/atom": "^1.36.1",
-    "@types/dompurify": "0.0.32",
-    "@types/marked": "^0.6.5",
-    "@types/node": "^10.14.9",
+    "@types/atom": "1.40.4",
+    "@types/dompurify": "2.0.2",
+    "@types/marked": "^1.1.0",
+    "@types/node": "^14.0.23",
     "atom-languageclient": "^0.9.9",
-    "commitlint": "^8.0.0",
-    "husky": "^2.4.1",
-    "prettier": "^1.18.2",
-    "semantic-release": "^15.13.16"
+    "jasmine": "^3.5.0",
+    "@types/jasmine": "^3.5.11",
+    "atom-jasmine3-test-runner": "^4.4.8",
+    "typescript": "^3.9.7",
+    "tslib": "^2.0.0",
+    "prettier": "^2.0.5",
+    "eslint": "7.4.0",
+    "eslint-config-atomic": "^1.0.0",
+    "tslint": "6.1.2",
+    "tslint-config-prettier": "1.18.0",
+    "rollup": "^2.21.0",
+    "rollup-plugin-atomic": "^1.0.2",
+    "shx": "^0.3.2",
+    "cross-env": "^7.0.2",
+    "@babel/cli": "7.10.5",
+    "@babel/core": "7.10.5",
+    "babel-preset-atomic": "latest",
+    "npm-check-updates": "7.0.2",
+    "build-commit": "0.1.1"
   },
   "activationHooks": [
     "core:loaded-shell-environment"
   ],
-  "release": {
-    "extends": "@semantic-release/apm-config"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "providedServices": {
     "markdown-renderer": {
       "versions": {
         "1.0.0": "provideMarkdownRenderer"
       }
     }
-  }
+  },
+  "package-deps": []
 }
