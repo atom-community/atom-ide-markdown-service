@@ -12,6 +12,8 @@ describe("Benchmark", () => {
       await atom.packages.activatePackage("atom-ide-markdown-service");
     });
 
-    expect(atom.packages.isPackageLoaded("atom-ide-markdown-service")).toBeTruthy();
+    expect(
+      atom.packages.isPackageLoaded("atom-ide-markdown-service")
+    ).toBeTruthy();
   });
 });

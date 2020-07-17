@@ -12,6 +12,8 @@ describe("tests", () => {
   });
 
   it("Activation", async function () {
-    expect(atom.packages.isPackageLoaded("atom-ide-markdown-service")).toBeTruthy();
+    expect(
+      atom.packages.isPackageLoaded("atom-ide-markdown-service")
+    ).toBeTruthy();
   });
 });
