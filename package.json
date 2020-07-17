@@ -19,12 +19,27 @@
     "marked": "^0.6.2"
   },
   "devDependencies": {
-    "@types/atom": "^1.36.1",
+    "@types/atom": "1.40.4",
     "@types/dompurify": "0.0.32",
     "@types/marked": "^0.6.5",
-    "@types/node": "^10.14.9",
+    "@types/node": "^14.0.23",
     "atom-languageclient": "^0.9.9",
-    "prettier": "^1.18.2",
+    "typescript": "^3.9.6",
+    "tslib": "^2.0.0",
+    "prettier": "^2.0.5",
+    "eslint": "7.4.0",
+    "eslint-config-atomic": "^0.1.0",
+    "tslint": "6.1.2",
+    "tslint-config-prettier": "1.18.0",
+    "rollup": "^2.21.0",
+    "rollup-plugin-atomic": "^1.0.2",
+    "shx": "^0.3.2",
+    "cross-env": "^7.0.2",
+    "@babel/cli": "7.10.5",
+    "@babel/core": "7.10.5",
+    "babel-preset-atomic": "latest",
+    "npm-check-updates": "7.0.1",
+    "build-commit": "0.1.1"
   },
   "activationHooks": [
     "core:loaded-shell-environment"
