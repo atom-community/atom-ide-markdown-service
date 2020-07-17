@@ -1,5 +1,8 @@
 declare module "atom-ide" {
-  export interface MarkdownService {
-    render: (markdownText: string, grammar: string) => Promise<string>;
-  }
+
+  /**
+   * the markdown service object
+   * @type {AtomIDE.MarkdownService}
+   */
+  export declare type render = (markdownText: string, grammar: string) => Promise<string>;
 }
