@@ -35,5 +35,6 @@
         "1.0.0": "provideMarkdownRenderer"
       }
     }
-  }
+  },
+  "package-deps": []
 }
