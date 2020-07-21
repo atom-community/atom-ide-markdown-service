@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.3.0...v1.3.1) (2020-07-21)
+
+
+### Bug Fixes
+
+* fix the service by returning {render} object ([afe0712](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/afe071223137ba50e3d3b0db3e20602955c018db))
+
 # [1.3.0](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.2.4...v1.3.0) (2020-07-17)
 
 
