@@ -23,10 +23,10 @@ let renderer: (markdownText: string, grammar: string) => Promise<string>;
 
 /**
  * retrieves a reference to the markdown rendering service that should be used
- * @param  {AtomIDE.MarkdownService} rendererIn the service for rendering markdown text
+ * @param  {AtomIDE.MarkdownService} markdownService the service for rendering markdown text
  */
-export function consumeMarkdownRenderer(rendererIn: AtomIDE.MarkdownService) {
-  renderer = rendererIn;
+export function consumeMarkdownRenderer(markdownService: AtomIDE.MarkdownService) {
+  renderer = markdownService.render;
 }
 ```
 
