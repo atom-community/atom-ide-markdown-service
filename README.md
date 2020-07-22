@@ -3,6 +3,9 @@
 Markdown service in atom-ide-community packages (e.g. ide-datatip).
 
 ### Usage
+Just install.
+
+### Developer Usage
 
 Put this in your `package.json`
 
