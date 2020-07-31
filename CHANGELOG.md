@@ -1,25 +1,22 @@
 ## [1.3.1](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.3.0...v1.3.1) (2020-07-21)
 
-
 ### Bug Fixes
 
-* fix the service by returning {render} object ([afe0712](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/afe071223137ba50e3d3b0db3e20602955c018db))
+- fix the service by returning {render} object ([afe0712](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/afe071223137ba50e3d3b0db3e20602955c018db))
 
 # [1.3.0](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.2.4...v1.3.0) (2020-07-17)
 
-
 ### Bug Fixes
 
-* enable build-commit ([f65d80d](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/f65d80d48edbafe0f31202cf8335cd3a2fae2dc7))
-* npm run format ([0302f71](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/0302f71f63a332a1bc1760229bb8e8e18ca25058))
-* renderer use optional chaining ([174d012](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/174d012701a9b40a3afb01d6dedd13433a7a6273))
-* use rolled up bundle ([83df123](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/83df123db277bbabd8d669ba6a9e289b67c6f75c))
-* utils ([a63eda2](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/a63eda2646d66f90a23ef5ca3ac9abf16d55e41d))
-
+- enable build-commit ([f65d80d](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/f65d80d48edbafe0f31202cf8335cd3a2fae2dc7))
+- npm run format ([0302f71](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/0302f71f63a332a1bc1760229bb8e8e18ca25058))
+- renderer use optional chaining ([174d012](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/174d012701a9b40a3afb01d6dedd13433a7a6273))
+- use rolled up bundle ([83df123](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/83df123db277bbabd8d669ba6a9e289b67c6f75c))
+- utils ([a63eda2](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/a63eda2646d66f90a23ef5ca3ac9abf16d55e41d))
 
 ### Features
 
-* Merge pull request [#29](https://github.com/atom-ide-community/atom-ide-markdown-service/issues/29) from atom-ide-community/atomic-packages ([21683a3](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/21683a3c805b1aaef4f563b647024e1a0d984c0a))
+- Merge pull request [#29](https://github.com/atom-ide-community/atom-ide-markdown-service/issues/29) from atom-ide-community/atomic-packages ([21683a3](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/21683a3c805b1aaef4f563b647024e1a0d984c0a))
 
 ## [1.2.4](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.2.3...v1.2.4) (2020-04-13)
 
