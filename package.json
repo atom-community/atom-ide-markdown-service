@@ -36,7 +36,6 @@
     "@types/marked": "^1.1.0",
     "@types/node": "^14.0.27",
     "atom-languageclient": "^0.9.9",
-    "jasmine": "^3.6.1",
     "@types/jasmine": "^3.5.12",
     "atom-jasmine3-test-runner": "^5.0.5",
     "typescript": "^3.9.7",
