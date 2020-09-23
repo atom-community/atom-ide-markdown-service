@@ -1,3 +1,11 @@
+## [1.3.3](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.3.2...v1.3.3) (2020-09-23)
+
+
+### Bug Fixes
+
+* bump ([e6f45bd](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/e6f45bdd9a62ee7994c7f45aae6ad3585932f77f))
+* remove workaround for escaping doctype ([c8936b8](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/c8936b8da103ab7563d2e8b4f20c15599ceb7ca3)), closes [/github.com/markedjs/marked/issues/354#issuecomment-697489034](https://github.com//github.com/markedjs/marked/issues/354/issues/issuecomment-697489034)
+
 ## [1.3.2](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.3.1...v1.3.2) (2020-08-12)
 
 
