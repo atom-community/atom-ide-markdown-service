@@ -11,6 +11,7 @@
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "incremental": true,
     "inlineSourceMap": true,
     "inlineSources": true,
