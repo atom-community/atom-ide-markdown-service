@@ -25,24 +25,25 @@ and use it inside your package like this:
 ```js
 import type {MarkdownService} from "atom-ide-base"
 
-let renderer: MarkdownService["renderer"]
+let render: MarkdownService["render"]
 
 /**
  * retrieves a reference to the markdown rendering service that should be used
  * @param  {MarkdownService} markdownService the service for rendering markdown text
  */
 export function consumeMarkdownRenderer(markdownService: MarkdownService) {
-  renderer = markdownService.render
+  render = markdownService.render
 }
 ```
 
-`renderer` is a function with this type:
+`render` is a function with this type:
 
 ```js
-let renderer: (markdownText: string, grammar: string) => Promise<string>
+let render: (markdownText: string, grammar: string) => Promise<string>
 ```
 
 ### Developer Usage - as npm package - ES6 modules
+
 ```
 npm install --save atom-ide-markdown-service
 ```
@@ -50,12 +51,13 @@ npm install --save atom-ide-markdown-service
 and use it inside your package like this:
 
 ```js
-import { render as renderer } from "atom-ide-markdown-service/lib/renderer"
+import { render } from "atom-ide-markdown-service/modules/renderer"
 ```
 
-in which renderer is a function with this type `renderer(markdownText: string, grammar: string) => Promise<string>`
+in which renderer is a function with this type `render(markdownText: string, grammar: string) => Promise<string>`
 
 ### Developer Usage - as npm package - commonjs
+
 ```
 npm install --save atom-ide-markdown-service
 ```
