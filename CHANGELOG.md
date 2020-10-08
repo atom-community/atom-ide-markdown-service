@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.3.3...v1.3.4) (2020-10-08)
+
+
+### Bug Fixes
+
+* bump ([7cc480f](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/7cc480f663cd5aabdb99dd618fe50a687a71bec4))
+
 ## [1.3.3](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.3.2...v1.3.3) (2020-09-23)
 
 
