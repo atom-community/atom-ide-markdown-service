@@ -1,3 +1,26 @@
+# [1.4.0](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.3.4...v1.4.0) (2020-10-08)
+
+
+### Bug Fixes
+
+* fix renderer in the readme ([8077adb](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/8077adbbcd00ba25aaaaf1cfb723f9400015ef9d))
+* getNextUpdatePromise type for text editor ([cdc677d](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/cdc677d5e5076c1b75095af1eae353b22e2e3e01))
+* HTMLPreElement type ([8d6deab](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/8d6deabd15150df770ca939f41e89dce663862f8))
+* optional chaining for setting innerHTML of line2 ([4fa1e1a](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/4fa1e1a3636a50572d5d54f35d7164a32246d0a1))
+* use in instead of checking the value directly ([d48303b](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/d48303b49e9a14cd387d7089871bdce316a9ad59))
+
+
+### Features
+
+* add es modules bundle ([b001cad](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/b001cadf70ef107834421fc9c4241e9d0aa21c7c))
+* add LanguageMode and TextBuffer types ([f6bbb42](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/f6bbb42f822adcfdbc79709b315c12b39b1823ce))
+* add TextMateLanguageMode types ([f7c1cd5](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/f7c1cd50bf77b6b66cef7189e39114e056feaa82))
+* fix types for renderer.ts ([b91633a](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/b91633a6ec871d0412f4354438e0249199c1e6b4))
+* onDidTokenize type ([043c406](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/043c40665c30284fa7b9c7b3a2ee70772450216c))
+* rename to typescript ([ac3cd38](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/ac3cd38118814c3644cc6cac7576b87417d6d233))
+* set grammar using its buffer ([411748a](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/411748addc1b5e00b5d70af5c789aadc2a497ec1))
+* use typescript ([bcf9d64](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/bcf9d64e9bf157dd5c368d4811aab16743758e40))
+
 ## [1.3.4](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.3.3...v1.3.4) (2020-10-08)
 
 
