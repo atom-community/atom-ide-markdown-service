@@ -1,6 +1,6 @@
-// @ts-check
+// TODO fix types
 
-import { TextEditor } from 'atom';
+import { TextEditor, TextEditorElement } from 'atom';
 import { scopeForFenceName, fenceNameForScope } from './utils';
 import marked from 'marked';
 
@@ -20,7 +20,7 @@ import marked from 'marked';
  * @param  {String} grammar     the default grammar to be used if the code section doesn't have a specific grammar set
  * @return {Promise}  a promise that is resolved when the fragment is ready
  */
-async function highlightCodeFragments(domFragment: HTMLElement, grammar: string): Promise {
+async function highlightCodeFragments(domFragment: HTMLElement, grammar: string): Promise<any> {
   const defaultLanguage = fenceNameForScope(grammar || 'text.plain');
   // set editor font family
   const fontFamily = atom.config.get('editor.fontFamily');
@@ -45,13 +45,13 @@ async function highlightCodeFragments(domFragment: HTMLElement, grammar: string)
       softWrapAtPreferredLineLength: true,
       preferredLineLength: 80
     });
-    let editorElement: Element = editor.getElement();
+    let editorElement = editor.getElement();
     editorElement.setUpdatedSynchronously(true);
 
     preElement.innerHTML = '';
-    preElement.parentNode.insertBefore(editorElement, preElement);
+    preElement.parentNode?.insertBefore(editorElement, preElement);
 
-    editor.setText(codeBlock.textContent.replace(/\r?\n$/, ''));
+    editor.setText(codeBlock.textContent?.replace(/\r?\n$/, '') ?? '');
 
     atom.grammars.assignLanguageMode(editor, scopeForFenceName(fenceName));
     editor.setVisible(true);
@@ -67,7 +67,7 @@ async function highlightCodeFragments(domFragment: HTMLElement, grammar: string)
  * @param  {HTMLPreElement} preElement    the HTML pre element that should host the resulting lines
  * @return {Promise}  a promise that is triggered as soon as tokenization and moving the content is done
  */
-function tokenizeEditor(editorElement: HTMLElement, preElement: HTMLPreElement): Promise {
+function tokenizeEditor(editorElement: TextEditorElement, preElement: HTMLPreElement): Promise {
   let p = new Promise((resolve, reject) => {
     let done = () => {
       editorElement.querySelectorAll('.line:not(.dummy)').forEach((line) => {
