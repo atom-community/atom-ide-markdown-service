@@ -16,4 +16,18 @@ export default [
     external: ["atom"],
     plugins: plugins,
   },
+  // ES6 module
+  {
+    input: "src/renderer.ts",
+    output: [
+      {
+        dir: "modules",
+        format: "es",
+        sourcemap: true,
+      },
+    ],
+    // loaded externally
+    external: ["atom"],
+    plugins: plugins,
+  },
 ]
