@@ -81,7 +81,7 @@ function tokenizeEditor(editorElement: TextEditorElement, preElement: HTMLPreEle
     }
     const editor = editorElement.getModel();
     const languageMode = editor.getBuffer().getLanguageMode();
-    if ((languageMode.fullyTokenized) || (languageMode.tree)) {
+    if (("fullyTokenized" in languageMode) || ("tree" in languageMode)) {
       editor.component.getNextUpdatePromise().then(() => {
         done();
       })
