@@ -23,7 +23,9 @@ Put this in your `package.json`
 and use it inside your package like this:
 
 ```js
-let renderer: (markdownText: string, grammar: string) => Promise<string>
+import type {MarkdownService} from "atom-ide-base"
+
+let renderer: MarkdownService["renderer"]
 
 /**
  * retrieves a reference to the markdown rendering service that should be used
