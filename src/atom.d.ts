@@ -28,6 +28,9 @@ declare module "atom" {
 
     // Controls visibility based on the given {Boolean}.
     setVisible(visible: boolean): void
+
+    // Experimental: Get a notification when async tokenization is completed.
+    onDidTokenize(callback: () => any): Disposable
   }
 
   interface LanguageMode {
