@@ -4,7 +4,8 @@
   "main": "./dist/main",
   "files": [
     "dist",
-    "lib"
+    "modules",
+    "src"
   ],
   "description": "A markdown rendering service.",
   "keywords": [
