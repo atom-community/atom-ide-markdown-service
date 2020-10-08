@@ -32,7 +32,7 @@ async function highlightCodeFragments(domFragment: HTMLElement, grammar: string)
     });
   }
 
-  const elements: HTMLElement[] = [].slice.call(domFragment.querySelectorAll('pre'));
+  const elements: HTMLPreElement[] = [].slice.call(domFragment.querySelectorAll('pre'));
   const promises = elements.map(async (preElement) => {
     let codeBlock = preElement.firstElementChild ?? preElement;
     let fenceName = codeBlock.getAttribute('class')?.replace(/^lang-/, '').replace(/^language-/, '') ?? defaultLanguage;
