@@ -1,25 +1,16 @@
-// @ts-check
-
 import { CompositeDisposable } from 'atom';
 import { render } from './renderer';
 import type { MarkdownService } from "atom-ide-base"
 
 /**
- * the Atom IDE markdown service plugin
- * @type {Object}
- */
-
-/**
  * [subscriptions description]
- * @type {CompositeDisposable}
  */
-let subscriptions: CompositeDisposable
+let subscriptions: CompositeDisposable | null
 
 /**
 * called by Atom when activating an extension
-* @param  {any} state the current state of atom
 */
-export function activate(state: any) {
+export function activate() {
     // Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     subscriptions = new CompositeDisposable();
 }
