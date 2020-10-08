@@ -53,7 +53,7 @@ async function highlightCodeFragments(domFragment: HTMLElement, grammar: string)
 
     editor.setText(codeBlock.textContent?.replace(/\r?\n$/, '') ?? '');
 
-    atom.grammars.assignLanguageMode(editor, scopeForFenceName(fenceName));
+    atom.grammars.assignLanguageMode(editor.getBuffer(), scopeForFenceName(fenceName));
     editor.setVisible(true);
     return await tokenizeEditor(editorElement, preElement);
   });
