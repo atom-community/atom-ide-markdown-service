@@ -31,6 +31,10 @@ declare module "atom" {
 
     // Experimental: Get a notification when async tokenization is completed.
     onDidTokenize(callback: () => any): Disposable
+
+    component: {
+      getNextUpdatePromise(): Promise<unknown>
+    }
   }
 
   interface LanguageMode {
