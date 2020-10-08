@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.4.0...v1.4.1) (2020-10-08)
+
+
+### Bug Fixes
+
+* files to be included in the pack ([8153c23](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/8153c23867de5c726a88ed455f22dd56bfafcc3a))
+
 # [1.4.0](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.3.4...v1.4.0) (2020-10-08)
 
 
