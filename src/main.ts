@@ -1,5 +1,5 @@
-import { CompositeDisposable } from 'atom';
-import { render } from './renderer';
+import { CompositeDisposable } from "atom"
+import { render } from "./renderer"
 import type { MarkdownService } from "atom-ide-base"
 
 /**
@@ -8,21 +8,21 @@ import type { MarkdownService } from "atom-ide-base"
 let subscriptions: CompositeDisposable | null
 
 /**
-* called by Atom when activating an extension
-*/
+ * called by Atom when activating an extension
+ */
 export function activate() {
-    // Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
-    subscriptions = new CompositeDisposable();
+  // Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
+  subscriptions = new CompositeDisposable()
 }
 
 /**
  * called by Atom when deactivating an extension
  */
 export function deactivate() {
-    if (subscriptions) {
-      subscriptions.dispose();
-    }
-    subscriptions = null;
+  if (subscriptions) {
+    subscriptions.dispose()
+  }
+  subscriptions = null
 }
 
 /**
@@ -30,5 +30,5 @@ export function deactivate() {
  * @return {MarkdownService} the markdown renderer service
  */
 export function provideMarkdownRenderer(): MarkdownService {
-    return {render};
+  return { render }
 }

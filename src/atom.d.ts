@@ -2,7 +2,6 @@ export {}
 
 // An {Object} with the following fields:
 interface BufferChangeEvent {
-
   // The deleted text
   oldText: string
 
@@ -19,10 +18,7 @@ interface BufferChangeEvent {
 type HighlightingChangeEvent = (range: Range) => void
 
 declare module "atom" {
-
-
   interface TextEditor {
-
     // Get the Element for the editor.
     getElement(): TextEditorElement
 
@@ -67,7 +63,6 @@ declare module "atom" {
   }
 
   interface TextMateLanguageMode {
-
     fullyTokenized: boolean
 
     // Get the suggested indentation level for an existing line in the buffer.
@@ -75,7 +70,7 @@ declare module "atom" {
     // * bufferRow - A {Number} indicating the buffer row
     //
     // Returns a {Number}.
-    suggestedIndentForBufferRow(bufferRow :number, tabLength: number, options: object): number
+    suggestedIndentForBufferRow(bufferRow: number, tabLength: number, options: object): number
 
     // Get the suggested indentation level for a given line of text, if it were inserted at the given
     // row in the buffer.
@@ -84,7 +79,6 @@ declare module "atom" {
     //
     // Returns a {Number}.
     suggestedIndentForLineAtBufferRow(bufferRow: number, line: number, tabLength: number): number
-
 
     // Get the suggested indentation level for a line in the buffer on which the user is currently
     // typing. This may return a different result from {::suggestedIndentForBufferRow} in order
@@ -95,21 +89,18 @@ declare module "atom" {
     //
     // Returns a {Number}.
     suggestedIndentForEditedBufferRow(bufferRow: number, tabLength: number): number
-
   }
 
   interface TextBuffer {
-
     // Experimental: Get the language mode associated with this buffer.
     //
     // Returns a language mode {Object} (See {TextBuffer::setLanguageMode} for its interface).
     getLanguageMode(): LanguageMode | TextMateLanguageMode
 
-
     // Experimental: Set the LanguageMode for this buffer.
     //
     // * `languageMode` - an {Object} with the following methods:
-    setLanguageMode (languageMode: LanguageMode | TextMateLanguageMode): void
+    setLanguageMode(languageMode: LanguageMode | TextMateLanguageMode): void
   }
 
   interface TextEditorElement {

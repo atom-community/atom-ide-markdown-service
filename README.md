@@ -43,6 +43,7 @@ let renderer: (markdownText: string, grammar: string) => Promise<string>
 ```
 
 ### Developer Usage - as npm package - ES6 modules
+
 ```
 npm install --save atom-ide-markdown-service
 ```
@@ -56,6 +57,7 @@ import { render as renderer } from "atom-ide-markdown-service/lib/renderer"
 in which renderer is a function with this type `renderer(markdownText: string, grammar: string) => Promise<string>`
 
 ### Developer Usage - as npm package - commonjs
+
 ```
 npm install --save atom-ide-markdown-service
 ```
