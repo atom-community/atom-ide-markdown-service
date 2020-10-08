@@ -73,7 +73,7 @@ function tokenizeEditor(editorElement: TextEditorElement, preElement: HTMLPreEle
       editorElement.querySelectorAll('.line:not(.dummy)').forEach((line) => {
        let line2 = document.createElement('div');
        line2.className = 'line';
-       line2.innerHTML = line.firstChild.innerHTML;
+       line2.innerHTML = line.firstChild?.innerHTML;
        preElement.appendChild(line2);
       });
       editorElement.remove();
