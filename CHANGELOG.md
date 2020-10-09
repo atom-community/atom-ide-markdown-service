@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.4.1...v1.5.0) (2020-10-09)
+
+
+### Features
+
+* add cjs module build ([6f4e360](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/6f4e360614e283698b4e7a3fa2d13370a3d87c41))
+
 ## [1.4.1](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.4.0...v1.4.1) (2020-10-08)
 
 
