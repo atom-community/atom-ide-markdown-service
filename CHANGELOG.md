@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.5.0...v1.5.1) (2020-10-11)
+
+
+### Bug Fixes
+
+* use firstElementChild instead of firstChild ([a135943](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/a135943a7556beec9dfb00b1cd92bf80c445f412))
+
 # [1.5.0](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.4.1...v1.5.0) (2020-10-09)
 
 
