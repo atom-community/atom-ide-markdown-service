@@ -61,7 +61,6 @@ export async function highlight(code: string, scopeName: string) {
 
 marked.setOptions({
   breaks: true,
-  sanitizer: (html) => DOMPurify.sanitize(html),
 })
 
 /**
@@ -90,6 +89,10 @@ function internalRender(markdownText: string, scopeName: string = "text.plain"):
           reject(e)
         }
         let template = document.createElement("template")
+
+        // sanitization
+        html = DOMPurify.sanitize(html)
+
         template.innerHTML = html.trim()
         return resolve(template.content.cloneNode(true))
       }
