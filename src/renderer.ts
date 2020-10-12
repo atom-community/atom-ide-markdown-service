@@ -63,9 +63,9 @@ marked.setOptions({
  * renders markdown to safe HTML asynchronously
  * @param markdownText the markdown text to render
  * @param scopeName scope name used for highlighting the code
- * @return the html template node containing the result
+ * @return the html string containing the result
  */
-function internalRender(markdownText: string, scopeName: string = "text.plain"): Promise<Node> {
+function internalRender(markdownText: string, scopeName: string = "text.plain"): Promise<string> {
   return new Promise((resolve, reject) => {
     marked(
       markdownText,
@@ -84,13 +84,10 @@ function internalRender(markdownText: string, scopeName: string = "text.plain"):
         if (e) {
           reject(e)
         }
-        let template = document.createElement("template")
-
         // sanitization
         html = DOMPurify.sanitize(html)
 
-        template.innerHTML = html.trim()
-        return resolve(template.content.cloneNode(true))
+        return resolve(html)
       }
     )
   })
@@ -103,10 +100,6 @@ function internalRender(markdownText: string, scopeName: string = "text.plain"):
  * @return {Promise<string>} the inner HTML text of the rendered section
  */
 export async function render(markdownText: string, grammar: string): Promise<string> {
-  let node = await internalRender(markdownText, grammar)
-  let div = document.createElement("div")
-  div.appendChild(node)
-  document.body.appendChild(div)
-  div.remove()
-  return div.innerHTML
+  const html = await internalRender(markdownText, grammar)
+  return html
 }
