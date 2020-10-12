@@ -71,10 +71,10 @@ function internalRender(markdownText: string, scopeName: string = "text.plain"):
         highlight: function (code, lang, callback) {
           highlight(code, scopeName)
             .then((codeResult) => {
-              callback?.(null, codeResult.join("\n"))
+              callback!(null, codeResult.join("\n"))
             })
             .catch((e) => {
-              callback?.(e)
+              callback!(e)
             })
         },
       },
