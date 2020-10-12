@@ -44,10 +44,6 @@ export async function highlight(code: string, scopeName: string) {
   const el = atom.views.getView(ed)
   try {
     el.setUpdatedSynchronously(true)
-    el.style.pointerEvents = "none"
-    el.style.position = "absolute"
-    el.style.top = "100vh"
-    el.style.width = "100vw"
     atom.grammars.assignLanguageMode(ed.getBuffer(), scopeName)
     ed.setText(code)
     ed.scrollToBufferPosition(ed.getBuffer().getEndPosition())
