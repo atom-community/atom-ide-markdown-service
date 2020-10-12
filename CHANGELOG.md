@@ -1,3 +1,22 @@
+# [1.6.0](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.5.1...v1.6.0) (2020-10-12)
+
+
+### Bug Fixes
+
+* don't create unncessary elements ([9341d16](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/9341d1671e20eac3e05bd802684cd5185f07e6c1))
+* pass scopeName directly to highlight function ([42e50e9](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/42e50e9b1b43568f7c7d57ec823660e1f38c5167))
+* remove unncessary TextEditorElement style setting ([fe6c88b](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/fe6c88bed20d63ae3fe897ee5aabd2a7024f497e))
+* sanitize in our code ([3c0f470](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/3c0f47087974f72c00f14d21e04be3348e0925e7)), closes [/github.com/atom-ide-community/atom-ide-markdown-service/pull/35/files#r503025236](https://github.com//github.com/atom-ide-community/atom-ide-markdown-service/pull/35/files/issues/r503025236)
+* use Array.from instead of slice.call to convert querySelectorAll output to Array ([0527bc6](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/0527bc6d53a6702696d7e67fe6d762a5c7ea2ba0))
+* use callbacks to assing the marked output ([6c1cd2f](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/6c1cd2fbfc9e73ffc96a15423939fc50c6986f3d))
+* use setOptions to set marked options ([e07d322](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/e07d322cad48c053071e47378ba1692bf8fb7a5e))
+
+
+### Features
+
+* highlight function ([87aa6e1](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/87aa6e1186ccae0c0bc9027f2373dc44897ca4f9))
+* seprate done function from editorTokenized ([6896dee](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/6896deea38e1a7b2b6265d9f4592c624219ffcf6))
+
 ## [1.5.1](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.5.0...v1.5.1) (2020-10-11)
 
 
