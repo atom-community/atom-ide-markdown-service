@@ -1,6 +1,4 @@
-// TODO fix types
-
-import { TextEditor, TextEditorElement } from "atom"
+import { TextEditor } from "atom"
 import marked from "marked"
 
 /**
@@ -95,9 +93,9 @@ function internalRender(markdownText: string, scopeName: string = "text.plain"):
 
 /**
  * renders the markdown text to html
- * @param  {string} markdownText the markdown text to render
- * @param  {string} grammar the default grammar used in code sections that have no specific grammar set
- * @return {Promise<string>} the inner HTML text of the rendered section
+ * @param markdownText the markdown text to render
+ * @param grammar the default grammar used in code sections that have no specific grammar set
+ * @return the inner HTML text of the rendered section
  */
 export async function render(markdownText: string, grammar: string): Promise<string> {
   const html = await internalRender(markdownText, grammar)
