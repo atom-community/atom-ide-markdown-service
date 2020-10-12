@@ -31,7 +31,7 @@ async function highlightCodeFragments(domFragment: HTMLElement, grammar: string)
     })
   }
 
-  const elements: HTMLPreElement[] = [].slice.call(domFragment.querySelectorAll("pre"))
+  const elements: HTMLPreElement[] = Array.from(domFragment.querySelectorAll("pre"))
   const promises = elements.map(async (preElement) => {
     let codeBlock = preElement.firstElementChild ?? preElement
     let fenceName =
