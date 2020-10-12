@@ -58,46 +58,39 @@ async function highlightCodeFragments(domFragment: HTMLElement, grammar: string)
 
     atom.grammars.assignLanguageMode(editor.getBuffer(), scopeForFenceName(fenceName))
     editor.setVisible(true)
-    return await tokenizeEditor(editorElement, preElement)
+
+    await editorTokenized(editor)
+
+    editorElement.querySelectorAll(".line:not(.dummy)").forEach((line) => {
+      let line2 = document.createElement("div")
+      line2.className = "line"
+      line2.innerHTML = line.firstElementChild?.innerHTML ?? ""
+      preElement.appendChild(line2)
+    })
+
+    editorElement.remove()
   })
 
   return await Promise.all(promises)
 }
 
 /**
- * takes an Atom TextEditor element, tokenize the content and move the resulting lines to the pre element given
- * @param  editorElement the HTML element containing the Atom TextEditor
- * @param  preElement    the HTML pre element that should host the resulting lines
- * @return a promise that is triggered as soon as tokenization and moving the content is done
+ * A function that resolves once the given editor has tokenized
+ * @param editor
  */
-function tokenizeEditor(editorElement: TextEditorElement, preElement: HTMLPreElement): Promise<void> {
-  let p = new Promise<void>((resolve, reject) => {
-    let done = () => {
-      editorElement.querySelectorAll(".line:not(.dummy)").forEach((line) => {
-        let line2 = document.createElement("div")
-        line2.className = "line"
-        line2.innerHTML = line.firstElementChild?.innerHTML ?? ""
-        preElement.appendChild(line2)
-      })
-      editorElement.remove()
-      resolve()
-    }
-    const editor = editorElement.getModel()
+export async function editorTokenized(editor: TextEditor) {
+  return new Promise((resolve) => {
     const languageMode = editor.getBuffer().getLanguageMode()
+    const nextUpdatePromise = editor.component.getNextUpdatePromise()
     if ("fullyTokenized" in languageMode || "tree" in languageMode) {
-      editor.component
-        .getNextUpdatePromise()
-        .then(() => {
-          done()
-        })
-        .catch(reject)
+      resolve(nextUpdatePromise)
     } else {
-      editor.onDidTokenize(() => {
-        done()
+      const disp = editor.onDidTokenize(() => {
+        disp.dispose()
+        resolve(nextUpdatePromise)
       })
     }
   })
-  return p
 }
 
 /**
