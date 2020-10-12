@@ -19,7 +19,7 @@ import DOMPurify from "dompurify"
  * @param  {String} grammar the default grammar to be used if the code section doesn't have a specific grammar set
  * @return  a promise that is resolved when the fragment is ready
  */
-async function highlightCodeFragments(domFragment: HTMLElement, grammar: string): Promise<any> {
+async function highlightCodeFragments(domFragment: HTMLElement, grammar: string) {
   const defaultLanguage = fenceNameForScope(grammar || "text.plain")
   // set editor font family
   const fontFamily = atom.config.get("editor.fontFamily")
