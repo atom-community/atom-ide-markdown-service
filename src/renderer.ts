@@ -93,13 +93,18 @@ export async function editorTokenized(editor: TextEditor) {
   })
 }
 
+marked.setOptions({
+  breaks: true,
+  sanitizer: (html) => DOMPurify.sanitize(html),
+})
+
 /**
  * renders markdown to safe HTML
  * @param  {String} markdownText the markdown text to render
  * @return {Node} the html template node containing the result
  */
 function internalRender(markdownText: string): Node {
-  let html = DOMPurify.sanitize(marked(markdownText, { breaks: true }))
+  let html = marked(markdownText)
   let template = document.createElement("template")
   template.innerHTML = html.trim()
   return template.content.cloneNode(true)
