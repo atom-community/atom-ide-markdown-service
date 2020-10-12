@@ -69,17 +69,16 @@ marked.setOptions({
 /**
  * renders markdown to safe HTML
  * @param  {String} markdownText the markdown text to render
- * @param grammar scope name used for highlighting the code
+ * @param scopeName scope name used for highlighting the code
  * @return {Node} the html template node containing the result
  */
-function internalRender(markdownText: string, grammar: string = "text.plain"): Node {
+function internalRender(markdownText: string, scopeName: string = "text.plain"): Node {
   let html = marked(markdownText, {
     highlight: function(code, lang, callback) {
-      let scopeName = grammar ?? scopeForFenceName(lang);
       highlight(code, scopeName).then((codeResult) => {
-        callback(null, codeResult.join("\n"))
+        callback?.("", codeResult.join("\n"))
       }).catch((e) => {
-        callback(e)
+        callback?.(e)
       })
     }
   })
