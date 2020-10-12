@@ -1,7 +1,6 @@
 // TODO fix types
 
 import { TextEditor, TextEditorElement } from "atom"
-import { scopeForFenceName, fenceNameForScope } from "./utils"
 import marked from "marked"
 
 /**
