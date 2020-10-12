@@ -11,7 +11,6 @@ import marked from "marked"
  */
 import DOMPurify from "dompurify"
 
-
 /**
  * A function that resolves once the given editor has tokenized
  * @param editor
@@ -67,24 +66,36 @@ marked.setOptions({
 })
 
 /**
- * renders markdown to safe HTML
- * @param  {String} markdownText the markdown text to render
+ * renders markdown to safe HTML asynchronously
+ * @param markdownText the markdown text to render
  * @param scopeName scope name used for highlighting the code
- * @return {Node} the html template node containing the result
+ * @return the html template node containing the result
  */
-function internalRender(markdownText: string, scopeName: string = "text.plain"): Node {
-  let html = marked(markdownText, {
-    highlight: function(code, lang, callback) {
-      highlight(code, scopeName).then((codeResult) => {
-        callback?.("", codeResult.join("\n"))
-      }).catch((e) => {
-        callback?.(e)
-      })
-    }
+function internalRender(markdownText: string, scopeName: string = "text.plain"): Promise<Node> {
+  return new Promise((resolve, reject) => {
+    marked(
+      markdownText,
+      {
+        highlight: function (code, lang, callback) {
+          highlight(code, scopeName)
+            .then((codeResult) => {
+              callback?.(null, codeResult.join("\n"))
+            })
+            .catch((e) => {
+              callback?.(e)
+            })
+        },
+      },
+      (e, html) => {
+        if (e) {
+          reject(e)
+        }
+        let template = document.createElement("template")
+        template.innerHTML = html.trim()
+        return resolve(template.content.cloneNode(true))
+      }
+    )
   })
-  let template = document.createElement("template")
-  template.innerHTML = html.trim()
-  return template.content.cloneNode(true)
 }
 
 /**
@@ -94,7 +105,7 @@ function internalRender(markdownText: string, scopeName: string = "text.plain"):
  * @return {Promise<string>} the inner HTML text of the rendered section
  */
 export async function render(markdownText: string, grammar: string): Promise<string> {
-  let node = internalRender(markdownText, grammar)
+  let node = await internalRender(markdownText, grammar)
   let div = document.createElement("div")
   div.appendChild(node)
   document.body.appendChild(div)
