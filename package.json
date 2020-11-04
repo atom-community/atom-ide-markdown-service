@@ -34,7 +34,7 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "dompurify": "^2.1.1",
+    "dompurify": "^2.2.2",
     "marked": "^1.2.0"
   },
   "devDependencies": {
