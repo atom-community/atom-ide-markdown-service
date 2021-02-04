@@ -1,3 +1,27 @@
+# [2.0.0](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.6.0...v2.0.0) (2021-02-04)
+
+
+### Bug Fixes
+
+* add tsc.es modules ([7cbae41](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/7cbae414aa0c01efb74bdeedeab900caff48f93c))
+* lint ([8467b44](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/8467b44b4ed3b8802385702ccca07b166942fe90))
+* update dependencies ([da9da4d](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/da9da4dc4e74d54263a7867478e72aefce94ae01))
+
+
+### Features
+
+* include utils functions in the package ([3d1999f](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/3d1999f7637d7b4ae7f1467b110f92562ba0355f))
+
+
+### Performance Improvements
+
+* build modules in separate folders ([a7e069f](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/a7e069fa93fd37c6c8300436a68a09661e9f2537))
+
+
+### BREAKING CHANGES
+
+* output files paths (see readme)
+
 # [1.6.0](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.5.1...v1.6.0) (2020-10-12)
 
 
