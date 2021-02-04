@@ -51,7 +51,7 @@ npm install --save atom-ide-markdown-service
 and use it inside your package like this:
 
 ```js
-import { render } from "atom-ide-markdown-service/modules/renderer.es"
+import { render } from "atom-ide-markdown-service/modules/renderer"
 ```
 
 in which renderer is a function with this type `render(markdownText: string, grammar: string) => Promise<string>`
@@ -65,7 +65,7 @@ npm install --save atom-ide-markdown-service
 and use it inside your package like this:
 
 ```js
-const { render } = require("atom-ide-markdown-service/modules/renderer")
+const { render } = require("atom-ide-markdown-service/dist/renderer")
 ```
 
 in which render is a function with this type `renderer(markdownText: string, grammar: string) => Promise<string>`
