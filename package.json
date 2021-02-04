@@ -30,8 +30,7 @@
     "tsc": "npm run tsc.cjs && npm run tsc.es",
     "dev": "npm run clean && npm run tsc && cross-env NODE_ENV=development cross-env BABEL_KEEP_MODULES=true rollup -c -w",
     "build": "npm run clean && npm run tsc && cross-env NODE_ENV=production cross-env BABEL_KEEP_MODULES=true rollup -c ",
-    "publishClean": "shx rm -rf pnpm-lock.yaml",
-    "build-commit": "build-commit -o dist --postcommand publishClean",
+    "build-commit": "build-commit -o dist",
     "bump": "ncu -u",
     "prepare": "npm run build"
   },
