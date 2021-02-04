@@ -51,7 +51,7 @@ export function scopeForFenceName(fenceName: string): string {
 
 export function fenceNameForScope(scope: string): string {
   scope = scope.toLowerCase()
-  let result = Object.keys(scopesByFenceName).filter((s) => s == scope)
+  const result = Object.keys(scopesByFenceName).filter((s) => s == scope)
   let resultOut: string
   if (result.length) {
     resultOut = result[0]

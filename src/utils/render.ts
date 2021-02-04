@@ -25,22 +25,22 @@ export async function highlightCodeFragments(domFragment: HTMLElement, grammar: 
 
   const elements: HTMLPreElement[] = [].slice.call(domFragment.querySelectorAll("pre"))
   const promises = elements.map(async (preElement) => {
-    let codeBlock = preElement.firstElementChild ?? preElement
-    let fenceName =
+    const codeBlock = preElement.firstElementChild ?? preElement
+    const fenceName =
       codeBlock
         .getAttribute("class")
         ?.replace(/^lang-/, "")
         .replace(/^language-/, "") ?? defaultLanguage
     preElement.classList.add("editor-colors", `lang-${fenceName}`)
 
-    let editor = new TextEditor({
+    const editor = new TextEditor({
       readonly: true,
       keyboardInputEnabled: false,
       softWrapped: true,
       softWrapAtPreferredLineLength: true,
       preferredLineLength: 80,
     })
-    let editorElement = editor.getElement()
+    const editorElement = editor.getElement()
     editorElement.setUpdatedSynchronously(true)
 
     preElement.innerHTML = ""
@@ -63,10 +63,10 @@ export async function highlightCodeFragments(domFragment: HTMLElement, grammar: 
  * @return a promise that is triggered as soon as tokenization and moving the content is done
  */
 export function tokenizeEditor(editorElement: TextEditorElement, preElement: HTMLPreElement): Promise<void> {
-  let p = new Promise<void>((resolve, reject) => {
-    let done = () => {
+  const p = new Promise<void>((resolve, reject) => {
+    const done = () => {
       editorElement.querySelectorAll(".line:not(.dummy)").forEach((line) => {
-        let line2 = document.createElement("div")
+        const line2 = document.createElement("div")
         line2.className = "line"
         line2.innerHTML = line.firstElementChild?.innerHTML ?? ""
         preElement.appendChild(line2)

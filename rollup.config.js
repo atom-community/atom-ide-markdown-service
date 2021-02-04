@@ -16,12 +16,12 @@ export default [
     external: ["atom"],
     plugins: plugins,
   },
-  // ES6 module npm
+  // csj npm
   {
     input: "src/renderer.ts",
     output: [
       {
-        dir: "modules",
+        dir: "dist",
         format: "cjs",
         sourcemap: true,
       },
@@ -30,12 +30,12 @@ export default [
     external: ["atom"],
     plugins: plugins,
   },
-  // csj npm
+  // ES6 module npm
   {
     input: "src/renderer.ts",
     output: [
       {
-        file: "modules/renderer.es.js",
+        dir: "modules",
         format: "es",
         sourcemap: true,
       },

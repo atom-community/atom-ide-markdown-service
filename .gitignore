@@ -12,3 +12,5 @@ package-lock.json
 # Build directories
 dist
 modules
+
+.rollup.cache
