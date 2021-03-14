@@ -67,7 +67,8 @@
   "providedServices": {
     "markdown-renderer": {
       "versions": {
-        "1.0.0": "provideMarkdownRenderer"
+        "1.0.0": "provideMarkdownRenderer",
+        "1.1.0": "provideMarkdownRenderer"
       }
     }
   },
