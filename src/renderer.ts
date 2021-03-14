@@ -1,4 +1,3 @@
-import { TextEditor } from "atom"
 import marked from "marked"
 
 /**
@@ -7,51 +6,7 @@ import marked from "marked"
  * @type {DOMPurify}
  */
 import DOMPurify from "dompurify"
-
-/**
- * A function that resolves once the given editor has tokenized
- * @param editor
- */
-export async function editorTokenized(editor: TextEditor) {
-  return new Promise((resolve) => {
-    const languageMode = editor.getBuffer().getLanguageMode()
-    const nextUpdatePromise = editor.component.getNextUpdatePromise()
-    if ("fullyTokenized" in languageMode || "tree" in languageMode) {
-      resolve(nextUpdatePromise)
-    } else {
-      const disp = editor.onDidTokenize(() => {
-        disp.dispose()
-        resolve(nextUpdatePromise)
-      })
-    }
-  })
-}
-
-/**
- * Highlights the given code with the given scope name (language)
- * @param code the given code as string
- * @param scopeName the language to highlight the code for
- */
-export async function highlight(code: string, scopeName: string) {
-  const ed = new TextEditor({
-    readonly: true,
-    keyboardInputEnabled: false,
-    showInvisibles: false,
-    tabLength: atom.config.get("editor.tabLength"),
-  })
-  const el = atom.views.getView(ed)
-  try {
-    el.setUpdatedSynchronously(true)
-    atom.grammars.assignLanguageMode(ed.getBuffer(), scopeName)
-    ed.setText(code)
-    ed.scrollToBufferPosition(ed.getBuffer().getEndPosition())
-    atom.views.getView(atom.workspace).appendChild(el)
-    await editorTokenized(ed)
-    return Array.from(el.querySelectorAll(".line:not(.dummy)")).map((x) => x.innerHTML)
-  } finally {
-    el.remove()
-  }
-}
+import { highlightTreeSitter } from "./highlighter"
 
 marked.setOptions({
   breaks: true,
@@ -69,9 +24,9 @@ function internalRender(markdownText: string, scopeName: string = "text.plain"):
       markdownText,
       {
         highlight: function (code, _lang, callback) {
-          highlight(code, scopeName)
+          highlightTreeSitter(code, scopeName)
             .then((codeResult) => {
-              callback!(null, codeResult.join("\n"))
+              callback!(null, codeResult)
             })
             .catch((e) => {
               callback!(e)
