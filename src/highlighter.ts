@@ -40,10 +40,10 @@ export async function highlightTreeSitter(sourceCode: string, scopeName: string)
       iter.seek(pos)
       const res = []
       while (pos.row < end.row || (pos.row === end.row && pos.column <= end.column)) {
-        const open = iter.getOpenScopeIds().map((x) => lm.classNameForScopeId(x))
-        const close = iter.getCloseScopeIds().map((x) => lm.classNameForScopeId(x))
-        res.push(...close.map((_) => `</span>`))
-        res.push(...open.map((x) => `<span class="${x}">`))
+        res.push(
+          ...iter.getCloseScopeIds().map(() => "</span>"),
+          ...iter.getOpenScopeIds().map((x) => `<span class="${lm.classNameForScopeId(x)}">`)
+        )
         iter.moveToSuccessor()
         const nextPos = iter.getPosition()
         res.push(escapeHTML(buf.getTextInRange([pos, nextPos])))
