@@ -1,4 +1,5 @@
 import { TextBuffer, LanguageMode } from "atom"
+import { EventLoopYielder, maxTimeError } from "./utils/event-loop-yielder"
 
 declare module "atom" {
   interface GrammarRegistry {
@@ -24,7 +25,7 @@ declare module "atom" {
 }
 
 export async function highlightTreeSitter(sourceCode: string, scopeName: string) {
-  const yielder = await eventLoopYielder(100, 5000)
+  const eventLoopYielder = new EventLoopYielder(100, 5000)
   const buf = new TextBuffer()
   try {
     const grammar = atom.grammars.grammarForId(scopeName)
@@ -47,10 +48,9 @@ export async function highlightTreeSitter(sourceCode: string, scopeName: string)
         iter.moveToSuccessor()
         const nextPos = iter.getPosition()
         res.push(escapeHTML(buf.getTextInRange([pos, nextPos])))
-        try {
-          await yielder()
-        } catch (e) {
-          console.error(e)
+
+        if (!(await eventLoopYielder.yield())) {
+          console.error(maxTimeError("Atom-IDE-Markdown-Service: Highlighter", 5))
           break
         }
         pos = nextPos
@@ -77,30 +77,6 @@ async function tokenized(lm: LanguageMode) {
       resolve(undefined) // null language mode
     }
   })
-}
-
-async function eventLoopYielder(delayMs: number, maxTimeMs: number) {
-  await new Promise(setImmediate)
-  const started = performance.now()
-  let lastYield = started
-  let now = lastYield
-  return async function () {
-    now = performance.now()
-    if (now - lastYield > delayMs) {
-      await new Promise(setImmediate)
-      lastYield = now
-    }
-    if (now - started > maxTimeMs) {
-      const err = new Error("Max time reached")
-      let description = `The highlighter took too long to complete and was terminated.`
-      atom.notifications.addError("Atom-IDE-Markdown-Service: Highlighter took more than 5 seconds to complete", {
-        dismissable: true,
-        description,
-        stack: err.stack,
-      })
-      throw err
-    }
-  }
 }
 
 function escapeHTML(str: string) {
