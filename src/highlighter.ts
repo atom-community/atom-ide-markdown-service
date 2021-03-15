@@ -1,5 +1,5 @@
 import { TextBuffer, LanguageMode } from "atom"
-import { EventLoopYielder, maxTimeError } from "./utils/event-loop-yielder"
+import { eventLoopYielder, maxTimeError } from "./utils/event-loop-yielder"
 
 declare module "atom" {
   interface GrammarRegistry {
@@ -25,7 +25,7 @@ declare module "atom" {
 }
 
 export async function highlightTreeSitter(sourceCode: string, scopeName: string) {
-  const eventLoopYielder = new EventLoopYielder(100, 5000)
+  const yielder = eventLoopYielder(100, 5000)
   const buf = new TextBuffer()
   try {
     const grammar = atom.grammars.grammarForId(scopeName)
@@ -49,7 +49,7 @@ export async function highlightTreeSitter(sourceCode: string, scopeName: string)
         const nextPos = iter.getPosition()
         res.push(escapeHTML(buf.getTextInRange([pos, nextPos])))
 
-        if (!(await eventLoopYielder.yield())) {
+        if (!(await yielder())) {
           console.error(maxTimeError("Atom-IDE-Markdown-Service: Highlighter", 5))
           break
         }
