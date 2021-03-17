@@ -12,18 +12,19 @@ marked.setOptions({
   breaks: true,
 })
 
-export type PurifyConfig = Omit<DOMPurify.Config, "RETURN_DOM" | "RETURN_DOM_FRAGMENT" | "RETURN_TRUSTED_TYPE">
+export type DOMPurifyConfig = Omit<DOMPurify.Config, "RETURN_DOM" | "RETURN_DOM_FRAGMENT" | "RETURN_TRUSTED_TYPE">
 
 /**
  * renders markdown to safe HTML asynchronously
  * @param markdownText the markdown text to render
  * @param scopeName scope name used for highlighting the code
+ * @param purifyConfig (optional) configuration object for DOMPurify
  * @return the html string containing the result
  */
 function internalRender(
   markdownText: string,
   scopeName: string = "text.plain",
-  purifyConfig?: PurifyConfig
+  domPurifyConfig?: DOMPurifyConfig
 ): Promise<string> {
   return new Promise((resolve, reject) => {
     marked(
@@ -44,7 +45,7 @@ function internalRender(
           reject(e)
         }
         // sanitization
-        html = purifyConfig ? DOMPurify.sanitize(html, purifyConfig) : DOMPurify.sanitize(html)
+        html = domPurifyConfig ? DOMPurify.sanitize(html, domPurifyConfig) : DOMPurify.sanitize(html)
 
         return resolve(html)
       }
@@ -56,9 +57,14 @@ function internalRender(
  * renders the markdown text to html
  * @param markdownText the markdown text to render
  * @param grammar the default grammar used in code sections that have no specific grammar set
+ * @param purifyConfig (optional) configuration object for DOMPurify
  * @return the inner HTML text of the rendered section
  */
-export async function render(markdownText: string, grammar: string, purifyConfig?: PurifyConfig): Promise<string> {
-  const html = await internalRender(markdownText, grammar, purifyConfig)
+export async function render(
+  markdownText: string,
+  grammar: string,
+  domPurifyConfig?: DOMPurifyConfig
+): Promise<string> {
+  const html = await internalRender(markdownText, grammar, domPurifyConfig)
   return html
 }
