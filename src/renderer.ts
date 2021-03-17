@@ -21,7 +21,7 @@ export type DOMPurifyConfig = Omit<DOMPurify.Config, "RETURN_DOM" | "RETURN_DOM_
  * @param purifyConfig (optional) configuration object for DOMPurify
  * @return the html string containing the result
  */
-function internalRender(
+export async function render(
   markdownText: string,
   scopeName: string = "text.plain",
   domPurifyConfig?: DOMPurifyConfig
@@ -51,20 +51,4 @@ function internalRender(
       }
     )
   })
-}
-
-/**
- * renders the markdown text to html
- * @param markdownText the markdown text to render
- * @param grammar the default grammar used in code sections that have no specific grammar set
- * @param purifyConfig (optional) configuration object for DOMPurify
- * @return the inner HTML text of the rendered section
- */
-export async function render(
-  markdownText: string,
-  grammar: string,
-  domPurifyConfig?: DOMPurifyConfig
-): Promise<string> {
-  const html = await internalRender(markdownText, grammar, domPurifyConfig)
-  return html
 }
