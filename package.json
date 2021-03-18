@@ -27,8 +27,8 @@
     "test": "atom --test spec",
     "clean": "shx rm -rf dist modules",
     "babel": "npm run clean && shx cp -r lib dist && cross-env NODE_ENV=development cross-env BABEL_KEEP_MODULES=false babel dist --out-dir dist",
-    "tsc.cjs": "tsc -p ./src/tsconfig.json --outDir dist || echo done",
-    "tsc.es": "tsc --module esnext -p ./src/tsconfig.json --outDir modules || echo done",
+    "tsc.cjs": "tsc -p ./src/tsconfig.json",
+    "tsc.es": "tsc --module esnext -p ./src/tsconfig.es.json",
     "tsc": "npm run tsc.cjs && npm run tsc.es",
     "dev": "npm run clean && npm run tsc && cross-env NODE_ENV=development cross-env BABEL_KEEP_MODULES=true rollup -c -w",
     "build": "npm run clean && npm run tsc && cross-env NODE_ENV=production cross-env BABEL_KEEP_MODULES=true rollup -c ",
@@ -43,23 +43,23 @@
   "devDependencies": {
     "@types/atom": "1.40.7",
     "@types/dompurify": "2.2.1",
+    "@types/jasmine": "^3.6.3",
     "@types/marked": "^1.2.2",
     "@types/node": "^14.14.25",
     "atom-ide-base": "^2.2.0",
-    "atom-languageclient": "^1.0.6",
-    "@types/jasmine": "^3.6.3",
     "atom-jasmine3-test-runner": "^5.1.8",
-    "typescript": "^4.1.3",
-    "tslib": "^2.1.0",
-    "prettier": "^2.2.1",
+    "atom-languageclient": "^1.0.6",
+    "build-commit": "0.1.4",
+    "cross-env": "^7.0.3",
     "eslint": "7.19.0",
     "eslint-config-atomic": "^1.9.0",
+    "npm-check-updates": "11.1.1",
+    "prettier": "^2.2.1",
     "rollup": "^2.38.4",
     "rollup-plugin-atomic": "^2.0.1",
     "shx": "^0.3.3",
-    "cross-env": "^7.0.3",
-    "npm-check-updates": "11.1.1",
-    "build-commit": "0.1.4"
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.3"
   },
   "activationHooks": [
     "core:loaded-shell-environment"
@@ -67,7 +67,8 @@
   "providedServices": {
     "markdown-renderer": {
       "versions": {
-        "1.0.0": "provideMarkdownRenderer"
+        "1.0.0": "provideMarkdownRenderer",
+        "1.1.0": "provideMarkdownRenderer"
       }
     }
   },

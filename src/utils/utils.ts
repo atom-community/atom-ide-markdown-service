@@ -1,4 +1,4 @@
-const scopesByFenceName = {
+const scopesByFenceName: { [key: string]: string | undefined } = {
   bash: "source.shell",
   sh: "source.shell",
   powershell: "source.powershell",
@@ -42,11 +42,7 @@ const scopesByFenceName = {
 
 export function scopeForFenceName(fenceName: string): string {
   fenceName = fenceName.toLowerCase()
-  let result = `source.${fenceName}`
-  if (scopesByFenceName[fenceName] != null) {
-    result = scopesByFenceName[fenceName]
-  }
-  return result
+  return scopesByFenceName[fenceName] ?? `source.${fenceName}`
 }
 
 export function fenceNameForScope(scope: string): string {
