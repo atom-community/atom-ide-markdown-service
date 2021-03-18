@@ -1,3 +1,17 @@
+# [2.1.0](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v2.0.0...v2.1.0) (2021-03-18)
+
+
+### Bug Fixes
+
+* refactor EventLoopYielder ([89a5933](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/89a5933447f9cb37de3a3c143d54f0c8eaf2e9df))
+* scopesByFenceName type ([80749db](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/80749db7047401cbd60a25e9fae76038b2987f57))
+
+
+### Features
+
+* pass optional configuration to purifier ([f4e064a](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/f4e064abe236e36e0c1c0fa94d45466d6267b580))
+* use more robust tree-sitter highlighter variation ([fc6b190](https://github.com/atom-ide-community/atom-ide-markdown-service/commit/fc6b19022493414c72261cdcdde5326d5192e632))
+
 # [2.0.0](https://github.com/atom-ide-community/atom-ide-markdown-service/compare/v1.6.0...v2.0.0) (2021-02-04)
 
 
