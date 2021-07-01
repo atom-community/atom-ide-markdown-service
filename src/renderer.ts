@@ -1,18 +1,16 @@
-import marked from "marked"
+let markdown_parse: typeof import("markdown-wasm").parse | undefined
 
-/**
- * safe DOM markup operations
- * a reference to the DOMpurify function to make safe HTML strings
- * @type {DOMPurify}
- */
 import DOMPurify from "dompurify"
+import type { Config as DOMPurifyOriginalConfig } from "dompurify"
+
 import { highlightTreeSitter } from "./highlighter"
+import make_synchronous from "make-synchronous"
+const highlightTreeSitterSync = make_synchronous(highlightTreeSitter)
 
-marked.setOptions({
-  breaks: true,
-})
-
-export type DOMPurifyConfig = Omit<DOMPurify.Config, "RETURN_DOM" | "RETURN_DOM_FRAGMENT" | "RETURN_TRUSTED_TYPE">
+export type DOMPurifyConfig = Omit<
+  DOMPurifyOriginalConfig,
+  "RETURN_DOM" | "RETURN_DOM_FRAGMENT" | "RETURN_TRUSTED_TYPE"
+>
 
 /**
  * renders markdown to safe HTML asynchronously
@@ -26,29 +24,23 @@ export async function render(
   scopeName: string = "text.plain",
   domPurifyConfig?: DOMPurifyConfig
 ): Promise<string> {
-  return new Promise((resolve, reject) => {
-    marked(
-      markdownText,
-      {
-        highlight: function (code, _lang, callback) {
-          highlightTreeSitter(code, scopeName)
-            .then((codeResult) => {
-              callback!(null, codeResult)
-            })
-            .catch((e) => {
-              callback!(e)
-            })
-        },
-      },
-      (e, html) => {
-        if (e) {
-          reject(e)
-        }
-        // sanitization
-        html = domPurifyConfig ? DOMPurify.sanitize(html, domPurifyConfig) : DOMPurify.sanitize(html)
-
-        return resolve(html)
-      }
-    )
+  if (markdown_parse === undefined) {
+    // wasm should be loaded async
+    // @ts-ignore
+    const markdown_wasm = (await import("markdown-wasm/dist/markdown.es")) as typeof import("markdown-wasm") & {
+      ready: Promise<void>
+    }
+    // instantiate wasm
+    await markdown_wasm.ready
+    markdown_parse = markdown_wasm.parse
+  }
+  const renderedHTML = markdown_parse(markdownText, {
+    onCodeBlock(_, body) {
+      return highlightTreeSitterSync(body.toString(), scopeName)
+    },
   })
+  // sanitization to make safe HTML strings
+  return domPurifyConfig !== undefined
+    ? DOMPurify.sanitize(renderedHTML, domPurifyConfig)
+    : DOMPurify.sanitize(renderedHTML)
 }

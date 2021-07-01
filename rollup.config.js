@@ -10,7 +10,7 @@ export default [
       {
         dir: "dist",
         format: "cjs",
-        sourcemap: true,
+        sourcemap: process.env.NODE_ENV === "development" ? "inline" : true,
       },
     ],
     // loaded externally
@@ -24,7 +24,7 @@ export default [
       {
         dir: "dist",
         format: "cjs",
-        sourcemap: true,
+        sourcemap: process.env.NODE_ENV === "development" ? "inline" : true,
       },
     ],
     // loaded externally
@@ -38,7 +38,7 @@ export default [
       {
         dir: "modules",
         format: "es",
-        sourcemap: true,
+        sourcemap: process.env.NODE_ENV === "development" ? "inline" : true,
       },
     ],
     // loaded externally
